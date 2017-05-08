@@ -72,6 +72,13 @@ router.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
+
+router.get('/logout', (req, res) => {
+  req.logout();
+  req.flash('success', 'Logged you out!');
+  res.redirect('/login');
+});
+
 router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
   res.render("passport/private", { user: req.user });
 });
