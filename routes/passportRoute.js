@@ -8,6 +8,8 @@ const bcrypt          = require("bcrypt");
 const bcryptSalt      = 10;
 const ensureLogin     = require("connect-ensure-login");
 const passport        = require('passport');
+
+
 router.get("/signup", (req, res) => {
   console.log("Entro al signup");
     res.render('passport/signup');
@@ -57,16 +59,19 @@ router.post("/signup", (req, res, next) => {
     });
   });
 });
+
 router.get("/login", (req, res) => {
   console.log('entro al login');
   res.render("passport/login", { "message": req.flash("error") });
 });
+
 router.post("/login", passport.authenticate("local", {
   successRedirect: "/",
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
 }));
+
 router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
   res.render("passport/private", { user: req.user });
 });

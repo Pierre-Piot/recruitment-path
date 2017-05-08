@@ -17,11 +17,14 @@ passport.deserializeUser((id, cb) => {
 });
 
 passport.use(new LocalStrategy({ passReqToCallback: true }, (req, username, password, next) => {
-  User.findOne({ username }, (err, user) => {
+    console.log("this is the user: ", username)
+  User.findOne({ mail: username }, (err, user) => {
+    console.log(user)
     if (err) {
       return next(err);
     }
     if (!user) {
+      console.log("hola", user);
       req.flash('error', 'Incorrect username');
       return next(null, false);
     }
