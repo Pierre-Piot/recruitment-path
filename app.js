@@ -10,7 +10,7 @@ const mongoose          = require('mongoose');
 const auth              = require('./helper/auth');
 const expressLayouts    = require('express-ejs-layouts');
 
-// define routes
+// Require routes
 const index             = require('./routes/index');
 const user              = require('./routes/user');
 const passportRoute     = require("./routes/passportRoute");

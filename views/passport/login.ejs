@@ -1,42 +1,35 @@
+  <div class="container" id='containerLogin'>
+    <div class="row">
+      <div class="col-6 col-md-4">
+      </div>
+    
+      <div class="col-6 col-md-4">
 
-<form action="/login" method="POST">
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" name="username">
+       
+          <a href="/"><img id='logoLogin' src="/images/logo.png"/></a>
+
+          <form class="form-signin" action="/login" method="POST">
+            <h2 class="form-signin-heading">Please sign in</h2>
+
+            <label for="username" class="sr-only">Email address</label>
+            <input type="email"  name='username' class="form-control" placeholder="Email address" required autofocus>
+
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" name='password' class="form-control" placeholder="Password" required>
+
+            <div class="checkbox">
+              <label>
+              <input type="checkbox" value="remember-me"> Remember me
+              </label>
+          </div>
+           <% if (typeof message != "undefined") { %>
+            <div class="error-message"><%= message %></div>
+           <% } %>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        </form>
+      </div>
+    
+    <div class="col-6 col-md-4">
+    </div>
   </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" name="password">
-  </div>
-  <% if (typeof message != "undefined") { %>
-    <div class="error-message"><%= message %></div>
-  <% } %>
-  <div>
-    <input type="submit" value="Log In">
-  </div>
-
-  </form>
-
-  <a href="/"><img src="/images/logo.png"/></a>
-
-
-
-
-    <div class="container">
-
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-
-    </div> <!-- /container -->
-
+</div>
