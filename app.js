@@ -8,6 +8,7 @@ const session           = require('express-session');
 const flash             = require('connect-flash');
 const mongoose          = require('mongoose');
 const auth              = require('./helper/auth');
+const expressLayouts    = require('express-ejs-layouts');
 
 // define routes
 const index             = require('./routes/index');
@@ -31,6 +32,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// set layouts for views
+app.use(express.static('public'));
+app.use(expressLayouts);
+app.set('layout', 'layouts/main-layout');
+app.set('views', __dirname + '/views');
+
 //enable sessions here
 app.use(session({
   secret: "my-strategy",
@@ -50,13 +57,13 @@ app.use('/user', user);
 app.use('/', passportRoute);
 
 
-// // adding our own middleware so all pages can access currentUser
-// app.use((req, res, next) => {
-//   res.locals.currentUser = req.user;
-//   res.locals.error = req.flash('error');
-//   res.locals.success = req.flash('success');
-//   next();
-// });
+// adding our own middleware so all pages can access currentUser
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  res.locals.error = req.flash('error');
+  res.locals.success = req.flash('success');
+  next();
+});
 
 
 // catch 404 and forward to error handler
