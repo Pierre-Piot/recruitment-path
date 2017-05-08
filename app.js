@@ -8,6 +8,7 @@ const session           = require('express-session');
 const flash             = require('connect-flash');
 const mongoose          = require('mongoose');
 const auth              = require('./helper/auth');
+const expressLayouts    = require('express-ejs-layouts');
 
 // define routes
 const index             = require('./routes/index');
@@ -30,6 +31,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// set layouts for views
+app.use(express.static('public'));
+app.use(expressLayouts);
+app.set('layout', 'layouts/main-layout');
+app.set('views', __dirname + '/views');
 
 //enable sessions here
 app.use(session({
