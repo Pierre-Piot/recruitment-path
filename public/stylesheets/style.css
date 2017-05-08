@@ -1,8 +1,59 @@
 body {
-  padding: 50px;
+  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+#text-logo {
+  color: gray;
+}
+
+
+#logo {
+ max-height: 50px;
+ max-width: 50px;
+}
+
+#logo:hover{
+  transform: scale(1.1, 1.1);
+}
+
+#text-logo {
+  display: inline-block;
+}
+
+.background-home {
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+  height: 500px;
+}
+
+
+
+html,
+body,
+.view {
+    height: 500px;
+}
+
+.view {
+    background: url("/images/workspace.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.text-bck p {
+  position: relative;
+  top: 300px;
+  bottom: 20px;
+  left: 70px;
+  color: white;
+  margin: 0;
+}
+
+.form-inline {
+  margin-top: 30px;
+  text-align: center;
 }
