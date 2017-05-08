@@ -12,10 +12,12 @@ const index             = require('./routes/index');
 const user              = require('./routes/user');
 const passportRoute     = require("./routes/passportRoute");
 var app = express();
+
 // Require helper files
 mongoose.connect('mongodb://localhost/recruitmentdb');
 const passport = require('./helper/passport');
 mongoose.Promise = require('bluebird');
+
 //enable sessions here
 app.use(session({
   secret: "my-strategy",
@@ -26,6 +28,7 @@ app.use(session({
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+
 // adding our own middleware so all pages can access currentUser
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
