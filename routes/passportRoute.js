@@ -21,6 +21,7 @@ router.get("/signup", (req, res) => {
     // }
   // })
 });
+
 router.post("/signup", (req, res, next) => {
   console.log("Entro al post");
   const name = "";
@@ -72,7 +73,21 @@ router.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
+router.get('/logout', (req, res) => {
+  req.logout();
+  req.flash('success', 'Logged you out!');
+  res.redirect('/login');
+});
+
+router.get('/show',  ensureLogin.ensureLoggedIn(), (req, res) => {
+  
+    res.render('passport/show', { user: req.user} );
+
+});
+
+
 router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
   res.render("passport/private", { user: req.user });
 });
+
 module.exports = router;
