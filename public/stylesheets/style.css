@@ -17,6 +17,7 @@ body {
 }
 
 #logoLogin{
+  margin-left: 60px;
   max-height: 200px;
   max-width: 200px;
 }
@@ -65,4 +66,9 @@ body,
 .form-inline {
   margin-top: 30px;
   text-align: center;
+}
+
+
+#gender {
+  padding: 10px;
 }
