@@ -31,9 +31,17 @@
 
 
 
+<div class="thumbs">
+    
+     <% jobFamilies.forEach((jobFamily) => { %>
+      <a href="/familyJobs/<%= jobFamily._id%>">
+        <div class="thumbnail">
+          <img src=<%= "icons/" + jobFamily.path  %>   alt="icon image">
+          <div class="caption">
+            <h4><%= jobFamily.name%> </h4>
+          </div>
+        </div></a>
+    <% }) %>
+
+
 </div>
-</div> 
-
-
-
-
