@@ -67,7 +67,7 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/private-page",
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
