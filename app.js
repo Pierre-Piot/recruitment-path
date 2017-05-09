@@ -13,6 +13,7 @@ const expressLayouts    = require('express-ejs-layouts');
 // Require routes
 const index             = require('./routes/index');
 const user              = require('./routes/user');
+const privateRoute      = require('./routes/privateRoute');
 const passportRoute     = require("./routes/passportRoute");
 
 // Require helper files
@@ -56,6 +57,7 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/user', user);
 app.use('/', passportRoute);
+//app.use('/', privateRoute);
 
 
 // adding our own middleware so all pages can access currentUser

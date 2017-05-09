@@ -87,7 +87,8 @@ router.get('/show',  ensureLogin.ensureLoggedIn(), (req, res) => {
 
 
 router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("passport/private", { user: req.user });
+  res.render("passport/private", { user: req.user , layout: 'layouts/logged-layout.ejs' });
 });
 
 module.exports = router;
+
