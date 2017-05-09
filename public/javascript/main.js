@@ -1,10 +1,9 @@
 
 $(document).ready(function(){
 
+$('.avatar').imageupload(options);
 
-//     $(function() {
-//         $( ".datepicker" ).datepicker();
-//   });
+
 
 
 
