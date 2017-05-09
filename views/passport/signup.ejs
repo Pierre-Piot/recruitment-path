@@ -62,17 +62,31 @@
           </div>
 
           <div class="form-group row">
-           
               <label for="example-datetime-local-input" class="col-2 col-form-label">Birthdate</label>
               <input class="form-control" type="date" value="Birthdate" id="birthdate">
-           
           </div>
 
+          <!--Upload user's image-->
+          <!--<div class="form-group row">
+            <div class="file-tab panel-body">
+                <input type="file" name="image-file" class="avatar">
+              <label for="upload-photo">Upload your Photo</label>
+            </div>-->
+
+        <div class="form-group row">
+            <label class="btn btn-primary btn-circle btn-lg" for="my-file-selector">
+                <input id="my-file-selector" type="file" style="display:none;" onchange="$('#upload-file-info').html($(this).val());">
+                    <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+            </label>
+            <span class='label label-info' id="upload-file-info"></span>
+            <span>Upload your photo (Jpeg)</span>
+        </div>
+
+
           <div class="form-group row">
-           
               <a href="/">
               <div class="btn-group" role="group" aria-label="..." method="POST"></div>
-              <button type="submit" class="btn btn-default">Create your account</button>
+              <button type="submit" class="btn btn-primary">Create your account</button>
               </a>
            
           </div>
@@ -86,7 +100,7 @@
               <p class="account-message">Do you already have an account?</p>
               <a href="/login">
               <div class="btn-group" role="group" aria-label="..." method="POST"></div>
-              <button type="button" class="btn btn-default">Login</button>
+              <button type="button" class="btn btn-primary">Login</button>
               </a>
            
           </div>

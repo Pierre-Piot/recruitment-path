@@ -72,3 +72,12 @@ body,
 #gender {
   padding: 10px;
 }
+
+.btn-circle.btn-lg {
+  width: 3em;
+  height: 3em;
+  line-height: 1.33;
+  border-radius: 35px;
+  font-size:1.1em;
+}
+
