@@ -1,8 +1,8 @@
 
-// // const jobFamilySchema = new Schema({
-// //   name  : String,
-// //   offers : [{ type: Schema.Types.ObjectId, ref: 'Offer' }]
-// // });
+// const jobFamilySchema = new Schema({
+//   name  : String,
+//   offers : [{ type: Schema.Types.ObjectId, ref: 'Offer' }]
+// });
 
 // const mongoose = require('mongoose');
 // const JobFamily = require('../models/jobFamily');
@@ -64,6 +64,8 @@
 //   docs.forEach((jobFamily) => {
 //     console.log(jobFamily.name);
 //   });
+//    mongoose.connection.close();
+// });
 
 const mongoose = require('mongoose');
 
@@ -78,7 +80,7 @@ const offers = [
     country: 'Spain',
     city: 'Madrid',
     status: true,
-    family: "5912e587b76ee2c332b5b877"
+    family: "5914803b487cff430f8a3c2f"
   },
   {
     title: 'IT Manager',
@@ -86,7 +88,7 @@ const offers = [
     country: 'Spain',
     city: 'Barcelona',
     status: true,
-    family: "5912e587b76ee2c332b5b877"
+    family: "5914803b487cff430f8a3c30"
   },
   {
     title: 'Marketing Online',
@@ -94,7 +96,7 @@ const offers = [
     country: 'France',
     city: 'Saint Malo',
     status: true,
-    family: "5912e587b76ee2c332b5b873"
+    family: "5914803b487cff430f8a3c30"
   }
 ];
 
@@ -104,4 +106,4 @@ Offer.create(offers, (err, docs) => {
     console.log(offer.title);
   });
   mongoose.connection.close();
-});
+ });

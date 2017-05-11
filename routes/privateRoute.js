@@ -14,7 +14,8 @@ const User            = require('../models/user');
 
 //, auth.checkControl('HR','/')
 //show details of each celebrity in individual pages (not working)
-privateRoutes.get('/private',ensureLogin.ensureLoggedIn('/login') , (req, res, next) => {
+
+privateRoutes.get('/private',ensureLogin.ensureLoggedIn('/login') ,  (req, res, next) => {
   console.log("Entro a jobFamily");
 
 res.render("passport/profile");

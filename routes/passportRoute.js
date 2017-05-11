@@ -67,7 +67,7 @@ router.post("/signup", upload.single('avatar'), (req, res, next) => {
       } else {
         req.login(newUser, function (err) {
                 if ( ! err ){
-                    res.redirect('/user');
+                    res.redirect('/private');
                 } else {
                     console.log(err)
                 }
