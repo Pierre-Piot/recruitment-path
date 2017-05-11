@@ -1,156 +1,120 @@
   <div class="container" id='containerLogin'>
+    
     <div class="row">
       <div class="col-6 col-md-4">
       </div>
     
       <div class="col-6 col-md-4">
-
+        <form class="" action="/signup" autocomplete="on" method="POST" id="signup-form" enctype="multipart/form-data" ">
+            <h2>Sign up</h2>
        
-
-
-
-<form action="/signup" method="POST" id="form-container">
-    <h2>Signup</h2>
-    <div class="btn-group" role="group" aria-label="..." method="POST" id="gender">
-      <button type="button" class="btn btn-default">Male</button>
-      <button type="button" class="btn btn-default">Female</button>
-    </div>
-   
-    <br><br>
-    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-    <label for="mail"></label>
-    <input id="mail" type="email" name="mail" placeholder="Email" autofocus required>
-    <br><br>
-
-    <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-    <label for="password"></label>
-    <input id="password" type="password" name="password" placeholder="Password" required>
-    <br><br>
-
-    <label id="birthdate">Birthdate</label>
-    <!--<input type="date" name="birthdate" id="birthdate">-->
-    <input class="datepicker" data-date-format="mm/dd/yyyy" name="birthdate" required>
-    <br><br>
-
-        <% if (typeof message !== "undefined") { %>
-          <div class="error-message">
-            <%= message %>
+          <!--<div class="form-group row">-->
+          <div class="btn-group row" role="group" aria-label="..."  id="gender" required>
+              <button type="button" class="btn btn-default btn-custom">Male</button>
+              <button type="button" class="btn btn-default btn custom">Female</button>
           </div>
-          <% } %>
-            <br><br>
-            <div class="btn-group" role="group" aria-label="..." method="POST">
-              <button type="submit" class="btn btn-default">Create account</button>
+         
+          <div class="form-group row">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <input class="form-control" type="text" placeholder="First Name" id="firstName" required autofocus>
+          </div>
+
+          <div class="form-group row">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <input class="form-control" type="text" placeholder="Last Name" id="lastname">
+
+          </div>
+
+          <div class="form-group row">
+           
+              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+              <input class="form-control" type="email" placeholder="email" id="mail" name="mail">
+           
+          </div>
+
+          <div class="form-group row">
+           
+              <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+              <input class="form-control" type="tel" placeholder="phone" id="" name="phone">
+           
+          </div>
+
+          <div class="form-group row">
+            <label for="password-input" class="col-2 col-form-label">Password</label>
+              <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+              <input class="form-control" type="password" placeholder="" id="password" name="password" pattern=".{6,}">
+          </div>
+
+          <div class="form-group row">
+            <label for="password-input" class="col-2 col-form-label">Confirm your Password</label>
+              <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+              <input class="form-control" type="password" placeholder="" id="password2" name="password2" pattern=".{6,}">
+          </div>
+
+          <div class="form-group row">
+              <label for="example-datetime-local-input" class="col-2 col-form-label">Birthdate</label>
+              <input class="form-control" type="date" placeholder="Birthdate" id="birthdate" name="age">
+          </div>
+
+          <!--Upload user's image-->
+          <!--<div class="form-group row">
+            <div class="file-tab panel-body">
+                <input type="file" name="image-file" class="avatar">
+              <label for="upload-photo">Upload your Photo</label>
+            </div>-->
+
+            <!--<div class="form-group row">
+                <label class="btn btn-primary btn-circle btn-lg" for="my-file-selector">
+                    <input id="my-file-selector" type="file" style="display:none;" onchange="$('#upload-file-info').html($(this).val());">
+                        <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+                </label>
+                <span class='label label-info' id="upload-file-info"></span>
+                <span>Upload your photo (Jpeg)</span>
+            </div>-->
+            
+            <div class="form-group row">
+                <h2>Upload your photo</h2>
+                    <input type="text" name="name">
+                    <input type="file" name="avatar">
             </div>
-  <br><br>
-  <p class="account-message">Do you already have an account?</p>
-  <a href="/login">
-    <div class="btn-group" role="group" aria-label="..." method="POST">
-      <button type="button" class="btn btn-default">Login</button>
-    </div>
-  </a>
-  <br><br>
-  <a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
-</form>
-
-
-<!--Copied from bootystrap-->
-<div class="form-group row">
-  <label for="example-text-input" class="col-2 col-form-label">Text</label>
-  <div class="col-10">
-    <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-search-input" class="col-2 col-form-label">Search</label>
-  <div class="col-10">
-    <input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-email-input" class="col-2 col-form-label">Email</label>
-  <div class="col-10">
-    <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-url-input" class="col-2 col-form-label">URL</label>
-  <div class="col-10">
-    <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
-  <div class="col-10">
-    <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-password-input" class="col-2 col-form-label">Password</label>
-  <div class="col-10">
-    <input class="form-control" type="password" value="hunter2" id="example-password-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-number-input" class="col-2 col-form-label">Number</label>
-  <div class="col-10">
-    <input class="form-control" type="number" value="42" id="example-number-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
-  <div class="col-10">
-    <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-date-input" class="col-2 col-form-label">Date</label>
-  <div class="col-10">
-    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-month-input" class="col-2 col-form-label">Month</label>
-  <div class="col-10">
-    <input class="form-control" type="month" value="2011-08" id="example-month-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-week-input" class="col-2 col-form-label">Week</label>
-  <div class="col-10">
-    <input class="form-control" type="week" value="2011-W33" id="example-week-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-time-input" class="col-2 col-form-label">Time</label>
-  <div class="col-10">
-    <input class="form-control" type="time" value="13:45:00" id="example-time-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-color-input" class="col-2 col-form-label">Color</label>
-  <div class="col-10">
-    <input class="form-control" type="color" value="#563d7c" id="example-color-input">
-  </div>
-</div>
-
-
-
-
-
-
           
 
-       
-      </div>
+
+          <div class="form-group row">
+              <div class="btn-group" role="group"></div>
+              <button type="submit" class="btn btn-primary">Create your account</button>
+          </div>
+          
+           <% if (typeof message != "undefined") { %>
+            <div class="error-message"><%= message %></div>
+           <% } %>
+
+          <!--<div class="form-group row">
+           
+              <p class="account-message">Do you already have an account?</p>
+              <a href="/login">
+              <div class="btn-group" role="group" aria-label="..." method="POST"></div>
+              <button type="button" class="btn btn-primary">Login</button>
+              </a>
+           
+          </div>-->
+         
+          <div class="form-group row">
+           
+              <a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+           
+          </div>
     
-    <div class="col-6 col-md-4">
-    </div>
-  </div>
-</div>
+        </form>
+      </div>
 
+      <div class="col-6 col-md-4">
+      </div>
 
+   </div>  <!--row-->
 
+  </div>   <!--container-->
 
-
+    
 
   

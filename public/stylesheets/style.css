@@ -20,6 +20,7 @@ body {
 }
 
 #logoLogin{
+  margin-left: 60px;
   max-height: 200px;
   max-width: 200px;
 }
@@ -70,8 +71,14 @@ body,
   text-align: center;
 }
 
+
+
+#gender {
+  padding: 10px;
+}
+
 .thumbs {
-  
+
   max-width: 750px;
   width: 100%;
   margin: 30px auto;
@@ -109,6 +116,7 @@ body,
   text-align: center;
 }
 
+<<<<<<< HEAD
 #familyImage{
 padding-bottom: 50px;
 margin-left: 150px;
@@ -197,4 +205,12 @@ padding-right: 150px;
 
 .offerButton:hover{
   transform: scale(1.1, 1.1);
+
+.btn-circle.btn-lg {
+  width: 3em;
+  height: 3em;
+  line-height: 1.33;
+  border-radius: 35px;
+  font-size:1.1em;
+
 }

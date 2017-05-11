@@ -3,6 +3,7 @@
 // //   name  : String,
 // //   offers : [{ type: Schema.Types.ObjectId, ref: 'Offer' }]
 // // });
+
 // const mongoose = require('mongoose');
 // const JobFamily = require('../models/jobFamily');
 
@@ -64,13 +65,9 @@
 //     console.log(jobFamily.name);
 //   });
 
-//   mongoose.connection.close();
-// });
-
 const mongoose = require('mongoose');
-const Offer = require('../models/Offer');
 
-
+const Offer = require('../models/offer');
 mongoose.connect('mongodb://localhost/recruitmentdb');
 
 
@@ -102,11 +99,9 @@ const offers = [
 ];
 
 Offer.create(offers, (err, docs) => {
-
   if(err) {throw err}
   docs.forEach((offer) => {
     console.log(offer.title);
   });
-
   mongoose.connection.close();
 });

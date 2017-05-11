@@ -8,12 +8,14 @@ const bcrypt          = require("bcrypt");
 const bcryptSalt      = 10;
 const ensureLogin     = require("connect-ensure-login");
 const passport        = require('passport');
-const auth            = require('../helper/auth');
+
+// upload image
+const multer          = require('multer');
+const upload          = multer({ dest: './public/uploads/' });
 
 
 
 router.get("/signup", (req, res) => {
-  console.log("Entro al signup");
     res.render('passport/signup');
   // JobFamily.find({}, (err, families) => {
     // if (err) {
@@ -24,20 +26,24 @@ router.get("/signup", (req, res) => {
   // })
 });
 
-router.post("/signup", (req, res, next) => {
-  console.log("Entro al post");
-  const name = "";
-  const password = req.body.password;
-  const age = req.body.age;
-  const mail = req.body.mail;
-  const gender = req.body.gender;
-  const offers = [];
-  if (password === "" || age === "" || mail === "" || gender === "") {
+router.post("/signup", upload.single('avatar'), (req, res, next) => {
+  const firstName = req.body.firstName;
+  const lastName  = req.body.lastName;
+  const password  = req.body.password;
+  const age       = req.body.age;
+  const mail      = req.body.mail;
+  const phone     = req.body.phone;
+  const gender    = req.body.gender;
+  const avatar    =  `uploads/${req.file.filename}`;
+  
+  
+  if (firstName === "" || lastName === "" ||  password === "" || age === "" || mail === "" || gender === "") {
     res.render("passport/signup", { message: "Please fill all fields" });
     return;
-  }
-  console.log("Email del usuario",mail);
+  };
+  console.log(mail)
   User.findOne({ mail }, "mail", (err, user) => {
+    console.log(user)
     if (user !== null) {
       res.render("passport/signup", { message: "The Email address is already associated with an existing account " });
       return;
@@ -45,19 +51,27 @@ router.post("/signup", (req, res, next) => {
     const salt     = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
     const newUser = User({
-      name: name,
+      firstName: firstName,
+      lastName: lastName,
       password: hashPass,
       age: age,
       mail: mail,
+      phone: phone,
       gender: gender,
-      offers: offers
+      avatar: avatar,
     });
     console.log(newUser);
     newUser.save((err) => {
       if (err) {
         res.render("passport/signup", { message: "Something went wrong" });
       } else {
-        res.redirect("/");
+        req.login(newUser, function (err) {
+                if ( ! err ){
+                    res.redirect('/user');
+                } else {
+                    console.log(err)
+                }
+            })
       }
     });
   });
@@ -82,7 +96,6 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/show',  ensureLogin.ensureLoggedIn(), (req, res) => {
-  
     res.render('passport/show', { user: req.user} );
 
 });
