@@ -14,7 +14,8 @@ const expressLayouts    = require('express-ejs-layouts');
 const index             = require('./routes/index');
 const user              = require('./routes/user');
 const privateRoute      = require('./routes/privateRoute');
-const passportRoute     = require("./routes/passportRoute");
+const passportRoute     = require('./routes/passportRoute');
+const jobFamilyRoute    = require('./routes/jobFamilyRoute');
 
 // Require helper files
 mongoose.connect('mongodb://localhost/recruitmentdb');
@@ -57,6 +58,8 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/user', user);
 app.use('/', passportRoute);
+app.use('/', jobFamilyRoute);
+app.use('/', privateRoute);
 //app.use('/', privateRoute);
 
 

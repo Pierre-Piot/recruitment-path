@@ -1,0 +1,21 @@
+
+<div id='offer'>
+    <div id='offerTitle'>
+        <h1><%= offer.title%><h1>
+    </div>  
+    <div id='offerLocation'>
+    <p> <%= offer.city%>, <%= offer.country%></p>
+    </div>  
+    <div id='offerDescription'>
+        <p><%= offer.description%></p> 
+    </div> 
+
+    <form method="post" action="/private/applyJob">
+        <input type="hidden" name="idOffer" value='<%=offer._id%>'>
+        <button class="offerButton" type="submit" name='apply'>Apply</button>
+    </form>
+
+</div>
+
+
+

@@ -1,0 +1,17 @@
+<div id='offers'>
+    <div id='offersHeader'>
+        <h1><%= family.name%>: Jobs Opportunities<h1>
+    </div>
+    <!--<div id='familyImage'>
+        <img src=<%= "../icons/" + family.path  %>   alt="icon image">
+    </div>-->
+    <div id='offersList'>
+        <ul>    
+            <% offers.forEach((offer) => { %>
+            <li>
+            <a href="/offer/<%= offer._id%>"><%= offer.title%></a>
+        </li> 
+            <% }) %>
+        </ul>
+    </div>
+</div>

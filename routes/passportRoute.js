@@ -8,6 +8,8 @@ const bcrypt          = require("bcrypt");
 const bcryptSalt      = 10;
 const ensureLogin     = require("connect-ensure-login");
 const passport        = require('passport');
+const auth            = require('../helper/auth');
+
 
 
 router.get("/signup", (req, res) => {
@@ -67,7 +69,7 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/private-page",
+  successRedirect: "/private",
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
@@ -86,9 +88,9 @@ router.get('/show',  ensureLogin.ensureLoggedIn(), (req, res) => {
 });
 
 
-router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("passport/private", { user: req.user , layout: 'layouts/logged-layout.ejs' });
-});
+// router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
+//   res.render("passport/private", { user: req.user , layout: 'layouts/logged-layout.ejs' });
+// });
 
 module.exports = router;
 

@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,600");
+
+
 body {
   padding-top: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -106,3 +109,92 @@ body,
   text-align: center;
 }
 
+#familyImage{
+padding-bottom: 50px;
+margin-left: 150px;
+padding-right: 150px;
+
+}
+#familyImage img{
+ max-width: 150px;
+ height: auto;
+ margin: 0 auto;
+}
+
+#offer{
+   margin: 70px auto;
+   padding-left: 150px;
+   padding-right: 150px;
+  
+}
+
+#offers{
+   margin: 70px auto;
+   padding-left: 150px;
+   padding-right: 150px;
+  
+}
+
+#offersHeader h1{
+  font-size: 40px;
+}
+
+#offersHeader{
+  font-family: Open Sans;
+  margin-bottom: 70px;
+}
+
+#offersList{
+  line-height: 250%;
+  font-size: 18px;
+  font-family: Open Sans;
+  font-weight: bold;
+}
+
+#offerTitle h1{
+  font-size: 40px;
+}
+
+#offerTitle{
+  font-family: Open Sans;
+  max-width: 800px;
+  min-width: 300px;
+  margin-top: 40px;
+}
+
+#offerLocation{
+  font-family: Open Sans;
+  line-height: 160%;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 100px;
+}
+
+#offerDescription{
+  line-height: 160%;
+  font-size: 18px;
+  font-family: Open Sans;
+  max-width: 900px;
+  min-width: 300px;
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 40px;
+}
+
+.offerButton{
+  background-color: #363a42; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.offerButton:hover{
+  transform: scale(1.1, 1.1);
+}
