@@ -21,7 +21,7 @@ JobFamily.find({}, (err, jobFamilies) => {
     if (err) {
       next(err)
     } else {
-      res.render('index', {title:'Express' , jobFamilies: jobFamilies, user: user});
+      res.render('index', {title:'Express' , jobFamilies: jobFamilies});
     }
   })
 
