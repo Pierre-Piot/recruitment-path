@@ -5,7 +5,7 @@
       </div>
     
       <div class="col-6 col-md-4">
-        <form class="" action="/signup" method="POST" id="signup-form">
+        <form class="" action="/signup" autocomplete="on" method="POST" id="signup-form" enctype="multipart/form-data" ">
             <h2>Sign up</h2>
        
           <!--<div class="form-group row">-->
@@ -16,48 +16,44 @@
          
           <div class="form-group row">
               <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-              <input class="form-control" type="text" value="First Name" id="firstName" required autofocus>
+              <input class="form-control" type="text" placeholder="First Name" id="firstName" required autofocus>
           </div>
 
           <div class="form-group row">
               <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-              <input class="form-control" type="text" value="Last Name" id="lastname">
+              <input class="form-control" type="text" placeholder="Last Name" id="lastname">
 
           </div>
 
           <div class="form-group row">
            
               <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-              <input class="form-control" type="email" value="email" id="username" name="username">
+              <input class="form-control" type="email" placeholder="email" id="mail" name="mail">
            
           </div>
 
           <div class="form-group row">
            
               <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
-              <input class="form-control" type="tel" value="phone-number" id="">
+              <input class="form-control" type="tel" placeholder="phone" id="" name="phone">
            
           </div>
 
           <div class="form-group row">
             <label for="password-input" class="col-2 col-form-label">Password</label>
-           
               <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-              <input class="form-control" type="password" value="bananas" id="password" name="password">
-           
+              <input class="form-control" type="password" placeholder="" id="password" name="password" pattern=".{6,}">
           </div>
 
           <div class="form-group row">
             <label for="password-input" class="col-2 col-form-label">Confirm your Password</label>
-           
               <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-              <input class="form-control" type="password" value="bananas" id="password2" name="password">
-           
+              <input class="form-control" type="password" placeholder="" id="password2" name="password2" pattern=".{6,}">
           </div>
 
           <div class="form-group row">
               <label for="example-datetime-local-input" class="col-2 col-form-label">Birthdate</label>
-              <input class="form-control" type="date" value="Birthdate" id="birthdate">
+              <input class="form-control" type="date" placeholder="Birthdate" id="birthdate" name="age">
           </div>
 
           <!--Upload user's image-->
@@ -67,30 +63,33 @@
               <label for="upload-photo">Upload your Photo</label>
             </div>-->
 
-        <div class="form-group row">
-            <label class="btn btn-primary btn-circle btn-lg" for="my-file-selector">
-                <input id="my-file-selector" type="file" style="display:none;" onchange="$('#upload-file-info').html($(this).val());">
-                    <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
-            </label>
-            <span class='label label-info' id="upload-file-info"></span>
-            <span>Upload your photo (Jpeg)</span>
-        </div>
-        
+            <!--<div class="form-group row">
+                <label class="btn btn-primary btn-circle btn-lg" for="my-file-selector">
+                    <input id="my-file-selector" type="file" style="display:none;" onchange="$('#upload-file-info').html($(this).val());">
+                        <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+                </label>
+                <span class='label label-info' id="upload-file-info"></span>
+                <span>Upload your photo (Jpeg)</span>
+            </div>-->
+            
+            <div class="form-group row">
+                <h2>Upload your photo</h2>
+                    <input type="text" name="name">
+                    <input type="file" name="avatar">
+            </div>
+          
 
 
           <div class="form-group row">
-              <a href="/">
-              <div class="btn-group" role="group" aria-label="..." method="POST"></div>
+              <div class="btn-group" role="group"></div>
               <button type="submit" class="btn btn-primary">Create your account</button>
-              </a>
-           
           </div>
           
            <% if (typeof message != "undefined") { %>
             <div class="error-message"><%= message %></div>
            <% } %>
 
-          <div class="form-group row">
+          <!--<div class="form-group row">
            
               <p class="account-message">Do you already have an account?</p>
               <a href="/login">
@@ -98,7 +97,7 @@
               <button type="button" class="btn btn-primary">Login</button>
               </a>
            
-          </div>
+          </div>-->
          
           <div class="form-group row">
            
@@ -117,18 +116,5 @@
   </div>   <!--container-->
 
     
-    
-    
- 
-
-
-    
-            
-
-       
-      
-
-
-
 
   

@@ -1,0 +1,38 @@
+  <div class="container" id='containerProfile'>
+    
+    <div class="row">
+      <div class="col-6 col-md-4">
+      </div>
+    
+      <div class="col-6 col-md-4">
+        
+
+      <div class="container">
+        <div class="row">
+          <div class="col">
+          </div>
+          <div class="col-6">
+
+          <h2>Welcome, <%= user.name %>  </h2>
+          <img src="<%= user.avatar %>">
+
+          <h3>Your information</h3>
+          <p><%console.log('user:', user) /%></p>
+          <ul>
+            <p>First Name:  <%= user.firstName %> </p>
+            <p>Last Name :  <%= user.lastName %></p>
+            <p>Email     :  <%= user.email %></p>
+            <p>Phone     :  <%= user.phone %></p>
+            <p>Birthdate :  <%= user.age %></p>
+            
+          </ul>
+
+          </div>
+          <div class="col">
+          </div>
+        </div>
+      </div>
+        
+        
+
+
