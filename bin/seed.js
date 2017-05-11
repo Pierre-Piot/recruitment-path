@@ -4,105 +4,106 @@
 //   offers : [{ type: Schema.Types.ObjectId, ref: 'Offer' }]
 // });
 
-const mongoose = require('mongoose');
-const JobFamily = require('../models/jobFamily');
-
-
-mongoose.connect('mongodb://localhost/recruitmentdb');
-
-
-const jobFamilies = [
-  {
-    name: 'Purchasing',
-    path: 'purchasing.png',
-  },
-  {
-    name: 'Commercial',
-    path: 'commercial.png',
-  },
-  {
-    name: 'Communication',
-    path: 'communication.png',
-  },
-  {
-    name: 'Finance',
-    path: 'finance.png',
-  },
-  {
-    name: 'Industrial & Supply Chain',
-    path: 'industrialSupplyChain.png',
-  },
-  {
-    name: 'Legal & Regulatory',
-    path: 'legalRegulatory.png',
-  },
-  {
-    name: 'Marketing',
-    path: 'marketing.png',
-  },
-  {
-    name: 'Quality',
-    path: 'quality.png',
-  },
-  {
-    name: 'Research & Innovation',
-    path: 'researchInnovation.png',
-  },
-  {
-    name: 'Human Ressources',
-    path: 'humanRessources.png',
-  },
-  {
-    name: 'Information System',
-    path: 'informationSystem.png',
-  }
-];
-
-JobFamily.create(jobFamilies, (err, docs) => {
-
-  if(err) {throw err}
-  docs.forEach((jobFamily) => {
-    console.log(jobFamily.name);
-  });
-   mongoose.connection.close();
-});
-
 // const mongoose = require('mongoose');
+// const JobFamily = require('../models/jobFamily');
 
-// const Offer = require('../models/offer');
+
 // mongoose.connect('mongodb://localhost/recruitmentdb');
 
 
-// const offers = [
+// const jobFamilies = [
 //   {
-//     title: 'Web Designer',
-//     description: 'Web designer with 4 years of experience',
-//     country: 'Spain',
-//     city: 'Madrid',
-//     status: true,
-//     family: "5912e587b76ee2c332b5b877"
+//     name: 'Purchasing',
+//     path: 'purchasing.png',
 //   },
 //   {
-//     title: 'IT Manager',
-//     description: 'Experience working with scrum',
-//     country: 'Spain',
-//     city: 'Barcelona',
-//     status: true,
-//     family: "5912e587b76ee2c332b5b877"
+//     name: 'Commercial',
+//     path: 'commercial.png',
 //   },
 //   {
-//     title: 'Marketing Online',
-//     description: 'Experience in SEO, SEM',
-//     country: 'France',
-//     city: 'Saint Malo',
-//     status: true,
-//     family: "5912e587b76ee2c332b5b873"
+//     name: 'Communication',
+//     path: 'communication.png',
+//   },
+//   {
+//     name: 'Finance',
+//     path: 'finance.png',
+//   },
+//   {
+//     name: 'Industrial & Supply Chain',
+//     path: 'industrialSupplyChain.png',
+//   },
+//   {
+//     name: 'Legal & Regulatory',
+//     path: 'legalRegulatory.png',
+//   },
+//   {
+//     name: 'Marketing',
+//     path: 'marketing.png',
+//   },
+//   {
+//     name: 'Quality',
+//     path: 'quality.png',
+//   },
+//   {
+//     name: 'Research & Innovation',
+//     path: 'researchInnovation.png',
+//   },
+//   {
+//     name: 'Human Ressources',
+//     path: 'humanRessources.png',
+//   },
+//   {
+//     name: 'Information System',
+//     path: 'informationSystem.png',
 //   }
 // ];
 
-// Offer.create(offers, (err, docs) => {
+// JobFamily.create(jobFamilies, (err, docs) => {
+
 //   if(err) {throw err}
-//   docs.forEach((offer) => {
-//     console.log(offer.title);
+//   docs.forEach((jobFamily) => {
+//     console.log(jobFamily.name);
 //   });
-//  
+//    mongoose.connection.close();
+// });
+
+const mongoose = require('mongoose');
+
+const Offer = require('../models/offer');
+mongoose.connect('mongodb://localhost/recruitmentdb');
+
+
+const offers = [
+  {
+    title: 'Web Designer',
+    description: 'Web designer with 4 years of experience',
+    country: 'Spain',
+    city: 'Madrid',
+    status: true,
+    family: "5914803b487cff430f8a3c2f"
+  },
+  {
+    title: 'IT Manager',
+    description: 'Experience working with scrum',
+    country: 'Spain',
+    city: 'Barcelona',
+    status: true,
+    family: "5914803b487cff430f8a3c30"
+  },
+  {
+    title: 'Marketing Online',
+    description: 'Experience in SEO, SEM',
+    country: 'France',
+    city: 'Saint Malo',
+    status: true,
+    family: "5914803b487cff430f8a3c30"
+  }
+];
+
+Offer.create(offers, (err, docs) => {
+  if(err) {throw err}
+  docs.forEach((offer) => {
+    console.log(offer.title);
+  });
+  mongoose.connection.close();
+ });

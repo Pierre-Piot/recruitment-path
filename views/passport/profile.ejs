@@ -13,17 +13,17 @@
           </div>
           <div class="col-6">
 
-          <h2>Welcome, <%= user.name %>  </h2>
-          <img src="<%= user.avatar %>">
+          <h2>Welcome, <%= currentUser.firstName.toUpperCase() %>  </h2>
+          <img src="<%= currentUser.avatar %>">
 
           <h3>Your information</h3>
-          <p><%console.log('user:', user) /%></p>
+          <p><%console.log('currentUser:', currentUser) %></p>
           <ul>
-            <p>First Name:  <%= user.firstName %> </p>
-            <p>Last Name :  <%= user.lastName %></p>
-            <p>Email     :  <%= user.email %></p>
-            <p>Phone     :  <%= user.phone %></p>
-            <p>Birthdate :  <%= user.age %></p>
+            <p>First Name:  <%= currentUser.firstName %> </p>
+            <p>Last Name :  <%= currentUser.lastName %></p>
+            <p>Email     :  <%= currentUser.mail %></p>
+            <p>Phone     :  <%= currentUser.phone %></p>
+            <p>Birthdate :  <%= currentUser.age %></p>
             
           </ul>
 

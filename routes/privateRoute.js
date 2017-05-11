@@ -14,10 +14,10 @@ const User            = require('../models/user');
 
 
 //show details of each celebrity in individual pages (not working)
-privateRoutes.get('/private',ensureLogin.ensureLoggedIn('/login') , auth.checkControl('HR','/'), (req, res, next) => {
+privateRoutes.get('/private',ensureLogin.ensureLoggedIn('/login') ,  (req, res, next) => {
   console.log("Entro a jobFamily");
 
-res.render("passport/private");
+res.render("passport/profile");
  
 //   Offer.find({family:req.params.id}, (err, offers) => {
 //     if (err) { next(err)
