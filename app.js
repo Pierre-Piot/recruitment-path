@@ -53,6 +53,15 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+// adding our own middleware so all pages can access currentUser
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  res.locals.error = req.flash('error');
+  res.locals.success = req.flash('success');
+  next();
+});
+
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use('/', index);
@@ -63,13 +72,7 @@ app.use('/', privateRoute);
 //app.use('/', privateRoute);
 
 
-// adding our own middleware so all pages can access currentUser
-app.use((req, res, next) => {
-  res.locals.currentUser = req.user;
-  res.locals.error = req.flash('error');
-  res.locals.success = req.flash('success');
-  next();
-});
+
 
 
 // catch 404 and forward to error handler
