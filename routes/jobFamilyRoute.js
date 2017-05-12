@@ -47,6 +47,14 @@ jobFamilyRoutes.get('/offer/:id', (req, res, next) => {
   });
 });
 
+// show description of the full job
+jobFamilyRoutes.get('/hroffer/delete/:id',auth.checkControl('HR', '/'), (req, res, next) => {
+  const idOffer = req.params.id;
+  Offer.findByIdAndRemove({ _id: idOffer } , (err, offer) => {
+    if (err) throw err; 
+    res.render('passport/profile');
+  });
+});
 
 jobFamilyRoutes.get('/hroffer/:id', auth.checkControl('HR', '/'), (req, res, next) => {
   User.find({ offers: { $in: [req.params.id] } }, { lastName: 1, firstName: 1 }, (err, users) => {
@@ -65,7 +73,6 @@ jobFamilyRoutes.get('/hroffer/:id', auth.checkControl('HR', '/'), (req, res, nex
     }
   });
 });
-
 
 
 jobFamilyRoutes.get('/hrdashboard', auth.checkControl('HR', '/'), (req, res, next) => {

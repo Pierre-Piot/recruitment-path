@@ -6,7 +6,7 @@
         <ul>    
             <% offers.forEach((offer) => { %>
             <li>
-            <a href="/hroffer/<%= offer._id%>"><%= offer.title%>, <%= offer.city%>, <%= offer.country%> </a>
+            <a href="/hroffer/<%= offer._id%>"><%= offer.title%>, <%= offer.city%>, <%= offer.country%> </a><button class="offerDButton"><a href="hroffer/delete/<%= offer._id%>">Delete Offer</a></button>
         </li> 
             <% }) %>
         </ul>

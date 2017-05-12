@@ -208,6 +208,16 @@ padding-right: 150px;
   margin-bottom: 40px;
 }
 
+.offerDButton{
+  background-color: #9eb3d6; 
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
 .offerButton{
   background-color: #363a42; /* Green */
     border: none;
