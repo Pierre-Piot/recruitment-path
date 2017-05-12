@@ -1,5 +1,6 @@
 var express           = require('express');
 var router            = express.Router();
+const auth = require('../helper/auth');
 const ensureLogin     = require("connect-ensure-login");
 
 
