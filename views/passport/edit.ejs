@@ -1,0 +1,88 @@
+<div class="container" id='containerLogin'>
+    
+    <div class="row">
+      <div class="col-6 col-md-4">
+      </div>
+    
+      <div class="col-6 col-md-4">
+        <form class="" action="/signup" autocomplete="on" method="POST" id="signup-form" enctype="multipart/form-data">
+            <h2>Edit your Account</h2>
+       
+          
+          <div class="btn-group row" role="group" aria-label="..."  id="gender" required>
+              <button type="button" class="btn btn-default btn-custom">Male</button>
+              <button type="button" class="btn btn-default btn custom">Female</button>
+          </div>
+         
+          <div class="form-group row">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <input class="form-control" type="text" placeholder="First Name" id="firstName" name="firstName" value="<%= currentUser.firstName %>">
+          </div>
+
+          <div class="form-group row">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <input class="form-control" type="text" placeholder="Last Name" name="lastName" id="lastname" value="<%= currentUser.lastName %>">
+          </div>
+
+          <div class="form-group row">
+           
+              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+              <input class="form-control" type="email" placeholder="email" id="mail" name="mail" value="<%= currentUser.mail %>">
+           
+          </div>
+
+          <div class="form-group row">
+           
+              <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+              <input class="form-control" type="tel" placeholder="phone" id="" name="phone" value="<%= currentUser.phone %>">
+           
+          </div>
+
+          <div class="form-group row">
+            <label for="password-input" class="col-2 col-form-label">Change your Password</label>
+              <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+              <input class="form-control" type="password" placeholder="" id="password" name="password" pattern=".{6,}" value="111111">
+          </div>
+
+          <div class="form-group row">
+            <label for="password-input" class="col-2 col-form-label">Confirm your Password</label>
+              <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+              <input class="form-control" type="password" placeholder="" id="password2" name="password2" pattern=".{6,}" value="111111">
+          </div>
+
+
+            <div class="form-group row">
+                <h2>Update your photo</h2>
+                    <input type="text" name="name">
+                    <input type="file" name="avatar">
+            </div>
+
+          <div class="form-group row">
+              <div class="btn-group" role="group"></div>
+              <button type="submit" class="btn btn-success">Update your account</button>
+          </div>
+          
+           <% if (typeof message != "undefined") { %>
+            <div class="error-message"><%= message %></div>
+           <% } %>
+         
+          
+    
+        </form>
+      </div>
+
+      <div class="col-6 col-md-4">
+          <div class="form-group row">
+            <!--Delete a user by ID-->
+                <ul>
+                <form action="/user/profile/<%= currentUser._id %>/delete" method="POST">
+                    <button class="btn btn-danger" type="submit">Delete your account</button>
+                </form>
+                </ul>
+           
+          </div>
+      </div>
+
+   </div>  <!--row-->
+
+  </div>   <!--container-->
