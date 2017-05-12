@@ -67,6 +67,15 @@ body,
     background-size: cover;
 }
 
+.goodbye{
+  height: 500px;
+    background: url("/images/goodbye.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .text-bck p {
   position: relative;
   top: 300px;

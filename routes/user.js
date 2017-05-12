@@ -1,30 +1,31 @@
 var express           = require('express');
 var router            = express.Router();
 const ensureLogin     = require("connect-ensure-login");
+const auth            = require("../helper/auth")
+
+const User            = require('../models/user');
 
 
-
-/* GET users listing. */
-router.get('/profile', ensureLogin.ensureLoggedIn(), function(req, res, next) {
-  console.log("user logged in");
-  let user = req.user;
-  res.render("profile", { user: user})
-});
-
-
+// edit profile
 router.get("/profile/edit", ensureLogin.ensureLoggedIn(), (req, res) => {
   let user = req.user;
   res.render("passport/edit",  { user, "message": req.flash("error") });
 });
 
+/* GET users listing. */
+router.get('/profile/:id', ensureLogin.ensureLoggedIn(), function(req, res, next) {
+  console.log("user logged in");
+  let user = req.user;
+  res.render("passport/profile", { user: user})
+});
 
-router.post("/profile/delete", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+// delete profile
+router.post("/profile/delete/:id", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const idUser = req.params.id;
   User.findByIdAndRemove({ _id: idUser } , (err, user) => {
     if (err) throw err; 
-  }); req.flash('success', `${User} - was successfully deleted!`);
-      alert("Your profile was successfully updated");
-      res.redirect('/');
+  });
+      res.redirect('/logout');
   });
 
 
