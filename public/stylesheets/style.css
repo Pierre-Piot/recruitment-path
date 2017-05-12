@@ -15,6 +15,12 @@ body {
   box-shadow:none;
 }*/
 
+.nav{
+  margin-right: 20px;
+  font-family: Open Sans;
+  color: white !important;
+}
+
 #text-logo {
   color: gray;
 }
@@ -67,20 +73,14 @@ body,
     background-size: cover;
 }
 
-.goodbye{
-  height: 500px;
-    background: url("/images/goodbye.jpg")no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
 
 .text-bck p {
+  font-size: 40px;
   position: relative;
-  top: 300px;
+  top: 380px;
   bottom: 20px;
-  left: 70px;
+  left: 150px;
+  font-family: Open Sans;
   color: white;
   margin: 0;
 }
@@ -273,4 +273,29 @@ padding-right: 150px;
   margin-left: -40px;
   margin-bottom: 30px;
   color: black;
+}
+
+/*.delete-btn{
+  clear: right;
+  margin-left: 120px;
+  margin-top: 200px;
+}*/
+
+.goodbye{
+  height: 800px;
+    background: url("/images/goodbye.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#byetext{
+  position: relative;
+  font-family: Open Sans;
+  top: 300px;
+  bottom: 20px;
+  left: 50px;
+  color: white;
+  margin: 0;
 }

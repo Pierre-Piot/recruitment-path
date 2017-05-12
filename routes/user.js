@@ -1,9 +1,7 @@
 var express           = require('express');
 var router            = express.Router();
-const auth = require('../helper/auth');
+const auth            = require('../helper/auth');
 const ensureLogin     = require("connect-ensure-login");
-const auth            = require("../helper/auth")
-
 const User            = require('../models/user');
 
 
@@ -25,24 +23,13 @@ router.post("/profile/delete/:id", ensureLogin.ensureLoggedIn(), (req, res, next
   const idUser = req.params.id;
   User.findByIdAndRemove({ _id: idUser } , (err, user) => {
     if (err) throw err; 
+    req.logout();
+    req.flash('success', 'Logged you out!');
+    res.render('passport/deleted', {layout: "layouts/logged-layout.ejs"});
   });
-      res.redirect('passeport/deleted');
   });
 
 
-// Isak's
-// DELETE a experience
-router.get('/:id/delete', auth.checkLoggedIn('You need to login to access this page', '/login'), (req, res) => {
-  const idexp = req.params.id;
-  Experience.findOneAndRemove({ _id: idexp }, (err, result) => {
-    if (err) throw err;
-    User.findOneAndUpdate({ _id: req.user }, { $pull: { experiences: idexp } }, (err, result) => {
-      if (err) throw err;
-      req.flash('success', `${result.name} - was successfully deleted!`);
-      res.redirect('/profile');
-    });
-  });
-});
 
 
 
