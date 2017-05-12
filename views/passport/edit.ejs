@@ -57,10 +57,7 @@
                     <input type="file" name="avatar">
             </div>
 
-          <div class="form-group row">
-              <div class="btn-group" role="group"></div>
-              <button type="submit" class="btn btn-success">Update your account</button>
-          </div>
+         
           
            <% if (typeof message != "undefined") { %>
             <div class="error-message"><%= message %></div>
@@ -72,17 +69,36 @@
       </div>
 
       <div class="col-6 col-md-4">
-          <div class="form-group row">
+      </div>
+
+   </div>  <!--row-->
+
+<div class="row">
+      <div class="col-6 col-md-4">
+      </div>
+
+      <div class="col-6 col-md-4">
+            <div class="form-group row">
+                    <ul>
+                        <form action="/user/profile/<%= currentUser.id %>" method="POST">
+                            <button class="btn btn-success" type="submit">Update your account</button>
+                        </form>
+                    </ul>
+            </div>
+            </div>
+            <div class="form-group row delete-btn">
             <!--Delete a user by ID-->
                 <ul>
                 <form action="/user/profile/delete/<%= currentUser.id %>" method="POST">
                     <button class="btn btn-danger" type="submit">Delete your account</button>
                 </form>
                 </ul>
-           
-          </div>
+            </div>
       </div>
 
-   </div>  <!--row-->
+      <div class="col-6 col-md-4">
+          
+      </div>
+</div>
 
   </div>   <!--container-->
