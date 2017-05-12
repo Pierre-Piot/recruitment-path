@@ -1,0 +1,17 @@
+<p>hi<p>
+
+   
+
+    <div id='offersHeader'>
+        <h1><%= offer.title%> : Jobs Opportunities</h1>
+    </div>
+
+    <div id='candidatesList'>
+        <ul>    
+            <% users.forEach((user) => { %>
+            <li>
+            <a href="/profile/<%= user._id%>"><%= user.lastName%>,<%= user.firstName%></a>
+            </li> 
+            <% }) %>
+        </ul>
+    </div>

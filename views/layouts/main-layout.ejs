@@ -39,8 +39,11 @@
           <li><a href="/login">Login</a></li>
        <% } else { %>
             
-                  
-                  <li><a href="#"><%= currentUser.mail%></a></li>
+                  <% if (currentUser.role === 'HR') { %>
+                  <li><a href="/hrdashboard">Human Ressource</a> </li>
+                  <% } %>
+
+                  <li><a href="/private"><%= currentUser.firstName%></a></li>
 
                   <li><a href="/logout">Logout</a></li>
            

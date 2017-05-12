@@ -13,5 +13,4 @@ const jobFamilySchema = new Schema({
   offers : [{ type: Schema.Types.ObjectId, ref: 'Offer' }]
 });
 
-const JobFamily = mongoose.model("JobFamily", jobFamilySchema);
-module.exports = JobFamily;
+module.exports = mongoose.model("JobFamily", jobFamilySchema);

@@ -15,7 +15,7 @@ const User            = require('../models/user');
 //, auth.checkControl('HR','/')
 //show details of each celebrity in individual pages (not working)
 
-privateRoutes.get('/private',ensureLogin.ensureLoggedIn('/login') ,  (req, res, next) => {
+privateRoutes.get('/private',ensureLogin.ensureLoggedIn('/login'),  (req, res, next) => {
   console.log("Entro a jobFamily");
 
 res.render("passport/profile");
@@ -27,14 +27,22 @@ res.render("passport/profile");
 //       })
   });
 
-privateRoutes.post('/private/applyJob', ensureLogin.ensureLoggedIn('/login') , (req, res , next)=>{
+privateRoutes.post('/private/applyJob', ensureLogin.ensureLoggedIn('/login'), (req, res, next) => {
+  
+  User.find({ _id: req.user._id, offers: req.body.idOffer }, (err, userU) => {
+    console.log("this is userU",userU.length);
+    if (userU.length !== 0){
+      console.log("Already applied");
+      res.render('passport/private',{ message: req.flash("Aplication Succefull") });  
+      return;    
+    }
+    console.log("New Apply");
+    User.update({ _id: req.user._id }, { $push: { offers: req.body.idOffer }}, (err) => {
+         if (err) { next(err);
+              } else { res.render('passport/private', { message: req.flash("Aplication Succefull") })} 
+    });
 
-  User.update({ _id:req.user._id},{$push:{ offers: req.body.idOffer}},(err)=>{
-         if (err) { next(err)
-              } else { res.render('passport/private' , { message: req.flash("Aplication Succefull") })}
   });
-
-
 });
 
 

@@ -1,0 +1,14 @@
+<div id='offers'>
+    <div id='offersHeader'>
+        <h1>Jobs Opportunities<h1>
+    </div>
+    <div id='offersList'>
+        <ul>    
+            <% offers.forEach((offer) => { %>
+            <li>
+            <a href="/hroffer/<%= offer._id%>"><%= offer.title%>, <%= offer.city%>, <%= offer.country%> </a>
+        </li> 
+            <% }) %>
+        </ul>
+    </div>
+</div>
