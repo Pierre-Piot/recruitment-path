@@ -25,7 +25,7 @@ router.post("/profile/delete/:id", ensureLogin.ensureLoggedIn(), (req, res, next
   User.findByIdAndRemove({ _id: idUser } , (err, user) => {
     if (err) throw err; 
   });
-      res.redirect('/logout');
+      res.redirect('passeport/deleted');
   });
 
 
