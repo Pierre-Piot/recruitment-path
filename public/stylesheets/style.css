@@ -6,6 +6,15 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+
+/* make navbar transparent
+.navbar{
+  background:transparent;
+  background-image:none;
+  border-color:transparent;
+  box-shadow:none;
+}*/
+
 #text-logo {
   color: gray;
 }
@@ -32,6 +41,7 @@ body {
 #text-logo {
   display: inline-block;
 }
+
 
 .background-home {
   margin-left: auto;
@@ -116,7 +126,7 @@ body,
   text-align: center;
 }
 
-<<<<<<< HEAD
+
 #familyImage{
 padding-bottom: 50px;
 margin-left: 150px;
@@ -205,6 +215,7 @@ padding-right: 150px;
 
 .offerButton:hover{
   transform: scale(1.1, 1.1);
+}
 
 .btn-circle.btn-lg {
   width: 3em;
@@ -213,4 +224,44 @@ padding-right: 150px;
   border-radius: 35px;
   font-size:1.1em;
 
+}
+
+.col-centered{
+  text-align: center;
+}
+
+.profile-container{
+  margin-top: 30px;
+  line-height: 160%;
+  font-size: 18px;
+  font-family: Open Sans;
+  max-width: 900px;
+  min-width: 300px;
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 40px;
+}
+
+.profile-avatar{
+  max-width: 100px;
+  max-height: 100px;
+  margin: 0 auto;
+
+}
+
+.profile-avatar img {
+  align-content: center;
+  width: 100%;
+}
+
+.profile-your-information-title{
+  margin-top: 10px;
+  color: #1e90ff; 
+}
+
+.profile-information-display{
+  margin-top: 30px;
+  margin-left: -40px;
+  margin-bottom: 30px;
+  color: black;
 }

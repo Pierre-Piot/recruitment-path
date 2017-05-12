@@ -1,34 +1,65 @@
-  <div class="container" id='containerProfile'>
-    
-    <div class="row">
-      <div class="col-6 col-md-4">
-      </div>
-    
-      <div class="col-6 col-md-4">
-        
-
-      <div class="container">
+<div class="container">
         <div class="row">
-          <div class="col">
+          <div class="col-md-12">
+            <form class="form-inline">
+
+            <label class="sr-only" for="searchByCity"></label>
+              <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                <!--<div class="input-group-addon">@</div>-->
+                <input type="text" class="form-control" id="searchByCity" placeholder="Search by City">
+              </div>
+
+              <label class="sr-only" for="searchByJobFamily"></label>
+              <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                <!--<div class="input-group-addon">@</div>-->
+                <input type="text" class="form-control" id="searchByJobFamily" placeholder="By Job Family">
+              </div>
+
+              <label class="sr-only" for="searcByKeyword"></label>
+              <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                <!--<div class="input-group-addon">@</div>-->
+                <input type="text" class="form-control" id="searcByKeyword" placeholder="By Keyword">
+              </div>
+
+              <button type="submit" class="btn btn-primary">Find</button>
+            </form>
           </div>
-          <div class="col-6">
+        </div>
+</div>
+   
 
-          <h2>Welcome, <%= currentUser.firstName.toUpperCase() %>  </h2>
-          <img src="<%= currentUser.avatar %>">
-
-          <h3>Your information</h3>
-          <p><%console.log('currentUser:', currentUser) %></p>
-          <ul>
-            <p>First Name:  <%= currentUser.firstName %> </p>
-            <p>Last Name :  <%= currentUser.lastName %></p>
-            <p>Email     :  <%= currentUser.mail %></p>
-            <p>Phone     :  <%= currentUser.phone %></p>
-            <p>Birthdate :  <%= currentUser.age %></p>
+      <div class="container profile-container">
+        <div class="row">
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-6 col-centered" id="container-candidate-info">
+            <div id='welcome-message'>
+              <h2>Welcome, <b><%= currentUser.firstName.toUpperCase() %></b> ! </h2>
+            </div>
+            <div class="profile-avatar">
+              <img src="<%= currentUser.avatar %>">
+            </div>
+            <div class="profile-information">
+              <div class="profile-your-information-title">
+                <h3>Your information</h3>
+                <div class="profile-information-display"
+                  <p><%console.log('currentUser:', currentUser) %></p>
+                  <ul>
+                    <p>First Name:  <%= currentUser.firstName %> </p>
+                    <p>Last Name :  <%= currentUser.lastName %></p>
+                    <p>Email     :  <%= currentUser.mail %></p>
+                    <p>Phone     :  <%= currentUser.phone %></p>
+                    <!--<p>Birthdate :  <%= currentUser.age %></p>-->
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="profile-edit">
+              <a class="btn btn-outline-primary" href="user/profile/edit" role="button"><b><em>Add your Carreer and Education<em></b></a>
+            </div>
+          </div>
+          <div class="col-md-3">
             
-          </ul>
-
-          </div>
-          <div class="col">
           </div>
         </div>
       </div>
