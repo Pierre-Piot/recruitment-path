@@ -9,6 +9,7 @@ const flash             = require('connect-flash');
 const mongoose          = require('mongoose');
 const auth              = require('./helper/auth');
 const expressLayouts    = require('express-ejs-layouts');
+require("dotenv").config();
 
 // Require routes
 const index             = require('./routes/index');
@@ -18,7 +19,7 @@ const passportRoute     = require('./routes/passportRoute');
 const jobFamilyRoute    = require('./routes/jobFamilyRoute');
 
 // Require helper files
-mongoose.connect('mongodb://localhost/recruitmentdb');
+mongoose.connect(process.env.MONGODB_URI);
 const passport = require('./helper/passport');
 mongoose.Promise = require('bluebird');
 
