@@ -1,0 +1,39 @@
+
+<div id='offer'>
+
+    <div id='offerTitle'>
+            <h1>New Job Offer<h1>
+    </div> 
+
+    <div class="offerItem">
+    <form method="post" action="/hroffer/newOffer">
+        <select name="jobFamily" id="jobFamily">
+                <% families.forEach((family) => { %>
+                <option name='<%= family._id%>' value='<%= family._id%>'><%= family.name%></option>
+                <% }) %>
+        </select>
+        </div>
+
+        <div class="offerItem">
+        <label for="titleOffer">Title </label>
+        <input type="text" id="titleOffer"  name="titleOffer">
+        </div>
+
+        <div class="offerItem">
+        <label for="descriptionOffer">Description </label>
+        <input type="text" id="descriptionOffer"  name="descriptionOffer">
+        </div> 
+
+        <div class="offerItem">
+        <label for="countryOffer">Country </label>
+        <input type="text" id="countryOffer"  name="countryOffer">
+        </div>
+
+        <div class="offerItem">
+        <label for="cityOffer">City </label>
+        <input type="text" id="cityOffer"  name="cityOffer">
+        </div>
+        <button class="offerButton" type="submit" name='Create'>Create Offer</button>
+    </form>
+</div>
+  

@@ -171,6 +171,10 @@ padding-right: 150px;
   margin-bottom: 70px;
 }
 
+.offerItem{
+  margin-bottom: 30px;
+}
+
 #offersList{
   line-height: 250%;
   font-size: 18px;
@@ -262,8 +266,8 @@ padding-right: 150px;
 }
 
 .profile-avatar{
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 150px;
+  max-height: 150px;
   margin: 0 auto;
 
 }
@@ -274,7 +278,7 @@ padding-right: 150px;
 }
 
 .profile-your-information-title{
-  margin-top: 10px;
+  margin-top: 70px;
   color: #1e90ff; 
 }
 

@@ -33,13 +33,13 @@ privateRoutes.post('/private/applyJob', ensureLogin.ensureLoggedIn('/login'), (r
     console.log("this is userU",userU.length);
     if (userU.length !== 0){
       console.log("Already applied");
-      res.render('passport/private',{ message: req.flash("Aplication Succefull") });  
+      res.render('passport/profile',{ message: req.flash("Aplication Succefull") });  
       return;    
     }
     console.log("New Apply");
     User.update({ _id: req.user._id }, { $push: { offers: req.body.idOffer }}, (err) => {
          if (err) { next(err);
-              } else { res.render('passport/private', { message: req.flash("Aplication Succefull") })} 
+              } else { res.render('passport/profile', { message: req.flash("Aplication Succefull") })} 
     });
 
   });

@@ -47,6 +47,52 @@ jobFamilyRoutes.get('/offer/:id', (req, res, next) => {
   });
 });
 
+// Render the new Job form
+jobFamilyRoutes.get('/hroffer/newOffer',auth.checkControl('HR', '/'), (req, res, next) => {
+
+  JobFamily.find({}, (err, families) => {
+   if (err) {
+     next(err);
+   } else {
+     res.render('offer/new', { families });
+   }
+  });
+});
+
+// Create the new Job offer
+jobFamilyRoutes.post('/hroffer/newOffer',auth.checkControl('HR', '/'), (req, res, next) => {
+
+  const title = req.body.titleOffer;
+  const family  = req.body.jobFamily;
+  const description = req.body.descriptionOffer;
+  const country = req.body.countryOffer;
+  const city = req.body.cityOffer;
+  const status = true;
+
+  if (title === "" || family === "" ||  description === "" || city === "" || status === "" || country === "") {
+      res.render('/');
+      return;
+  }
+
+  const newOffer = Offer({
+    title: title,
+        family: family,
+        description: description,
+        country: country,
+        city: city,
+        status: status
+  });
+    console.log(newOffer);
+    newOffer.save((err) => {
+      if (err) {
+        res.render("/", { message: "Something went wrong" });
+      } else {
+        res.render('passport/profile');
+      }
+    });
+});
+
+
 // show description of the full job
 jobFamilyRoutes.get('/hroffer/delete/:id',auth.checkControl('HR', '/'), (req, res, next) => {
   const idOffer = req.params.id;
