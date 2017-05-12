@@ -75,7 +75,7 @@
           <div class="form-group row">
             <!--Delete a user by ID-->
                 <ul>
-                <form action="/user/profile/<%= currentUser._id %>/delete" method="POST">
+                <form action="/user/profile/delete/<%= currentUser.id %>" method="POST">
                     <button class="btn btn-danger" type="submit">Delete your account</button>
                 </form>
                 </ul>
